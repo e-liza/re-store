@@ -1,1 +1,2 @@
-console.log('myapp');
+import React from 'react';
+import App from './components/app/app';
