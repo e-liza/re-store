@@ -1,10 +1,8 @@
 import React from 'react';
 import './app.css';
 
-import withBookStoreService from '../hoc/with-bookstore-service';
-
-const App = ({ bookStoreService }) => {
+const App = () => {
   return <div>App</div>;
 };
 
-export default withBookStoreService()(App);
+export default App;
