@@ -1,5 +1,5 @@
 export default class BookstoreService {
-  getBook() {
+  getBooks() {
     return [
       {
         id: 1,
