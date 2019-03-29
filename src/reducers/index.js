@@ -1,18 +1,27 @@
 const initialState = {
-  books: []
+  books: [
+    {
+      id: 1,
+      title: 'Production-Ready Microservices',
+      author: 'Susan J.Fowler'
+    },
+    {
+      id: 2,
+      title: 'Release It!',
+      author: 'Michael T.Nygard'
+    }
+  ]
 };
 
 const reducer = (state = initialState, action) => {
-
-  switch (action.type){
-      case 'BOOK_LOADED':
-      return{
-          books:action.payload
+  switch (action.type) {
+    case 'BOOK_LOADED':
+      return {
+        books: action.payload
       };
-      default:
-      return state
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;
