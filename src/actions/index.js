@@ -16,4 +16,14 @@ const booksError = error => {
   };
 };
 
-export { booksLoaded, booksRequested, booksError };
+const fetchBooks = (dispatch, bookStoreService)=>() => {
+  dispatch(booksRequested());
+  bookStoreService
+    .getBooks()
+    .then(data => dispatch(booksLoaded(data)))
+    .catch(err => {
+      dispatch(booksError(err));
+    });
+}
+
+export { fetchBooks };
