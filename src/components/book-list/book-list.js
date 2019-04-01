@@ -8,6 +8,8 @@ import { booksLoaded } from '../../actions/';
 
 import { compose } from '../../utils';
 
+import './book-list.css';
+
 class BookList extends Component {
   componentDidMount() {
     const { bookStoreService } = this.props;
@@ -44,5 +46,3 @@ export default compose(
     mapDispatchToProps
   )
 )(BookList);
-
-
