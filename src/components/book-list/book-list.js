@@ -25,7 +25,7 @@ class BookList extends Component {
       return <Spinner />;
     }
     return (
-      <ul>
+      <ul className="book-list">
         {books.map(book => {
           return (
             <li key={book.id}>
