@@ -19,8 +19,14 @@ export default class BookstoreService {
   ];
 
   getBooks() {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
+        // Uncomment the code below to test the mock-up error
+        // if(Math.random()>0.75){
+        //   reject(new Error('Error happened'));
+        // } else{
+        //   resolve(this.data);
+        // }
         resolve(this.data);
       }, 700);
     });
