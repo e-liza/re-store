@@ -12,7 +12,21 @@ import { compose } from '../../utils';
 
 import './book-list.css';
 
-class BookList extends Component {
+const BookList = ({ books }) => {
+  return (
+    <ul className="book-list">
+      {books.map(book => {
+        return (
+          <li key={book.id}>
+            <BookListItem book={book} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+class BookListContainer extends Component {
   componentDidMount() {
     const { fetchBooks } = this.props;
     fetchBooks();
@@ -27,17 +41,7 @@ class BookList extends Component {
     if (error) {
       return <Error />;
     }
-    return (
-      <ul className="book-list">
-        {books.map(book => {
-          return (
-            <li key={book.id}>
-              <BookListItem book={book} />
-            </li>
-          );
-        })}
-      </ul>
-    );
+    return <BookList books={books} />;
   }
 }
 
@@ -62,4 +66,4 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   )
-)(BookList);
+)(BookListContainer);
