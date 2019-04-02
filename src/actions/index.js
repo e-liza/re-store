@@ -23,6 +23,20 @@ const booksAdded = id => {
   };
 };
 
+const booksDeleted = id => {
+  return {
+    type: 'BOOKS_DELETED',
+    payload: id
+  };
+};
+
+const bookDeleted = id => {
+  return {
+    type: 'BOOK_DELETED',
+    payload: id
+  };
+};
+
 const fetchBooks = (dispatch, bookStoreService) => () => {
   dispatch(booksRequested());
   bookStoreService
@@ -33,4 +47,9 @@ const fetchBooks = (dispatch, bookStoreService) => () => {
     });
 };
 
-export { fetchBooks, booksAdded };
+export {
+  fetchBooks,
+  booksAdded,
+  booksDeleted,
+  bookDeleted
+};
