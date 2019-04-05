@@ -37,7 +37,7 @@ const bookDeleted = id => {
   };
 };
 
-const fetchBooks = (dispatch, bookStoreService) => () => {
+const fetchBooksOld = (dispatch, bookStoreService) => () => {
   dispatch(booksRequested());
   bookStoreService
     .getBooks()
@@ -45,6 +45,13 @@ const fetchBooks = (dispatch, bookStoreService) => () => {
     .catch(err => {
       dispatch(booksError(err));
     });
+};
+
+const fetchBooks = (bookstoreService) => (dispatch) => {
+  dispatch(booksRequested());
+  bookstoreService.getBooks()
+    .then((data) => dispatch(booksLoaded(data)))
+    .catch((err) => dispatch(booksError(err)));
 };
 
 export {
